@@ -1,0 +1,41 @@
+<?php
+
+namespace Drupal\mrmilu_twig\Twig;
+use Drupal\Core\Url;
+
+/**
+ * Class DefaultService.
+ *
+ * @package Drupal\mrmilu_twig
+ */
+class MrMiluPathLang extends \Twig_Extension {
+
+  /**
+   * {@inheritdoc}
+   * This function must return the name of the extension. It must be unique.
+   */
+  public function getName() {
+    return 'mrmilu_path_lang';
+  }
+
+  /**
+   * In this function we can declare the extension function
+   */
+  public function getFunctions() {
+    return array(
+      new \Twig_SimpleFunction('mrmilu_path_lang', [$this, 'mrmilu_path_lang']),
+    );
+  }
+
+  /**
+   * The php function to load a given block
+   */
+  public function mrmilu_path_lang($name, $parameters, $options, $langcode) {
+    if ($langcode) {
+      if ($language = \Drupal::languageManager()->getLanguage($langcode)) {
+        $options['language'] = $language;
+      }
+    }
+    return Url::fromRoute($name, $parameters, $options)->toString();
+  }
+}

@@ -1,0 +1,6 @@
+name: Mr. Milu Twig
+type: module
+description: Custom Twig Extensions
+package: Mr. Milú
+core: 8.x
+version: 1.0.0

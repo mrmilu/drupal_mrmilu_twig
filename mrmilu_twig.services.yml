@@ -1,0 +1,19 @@
+services:
+  mrmilu_twig.twig.mrmilu_block_extension:
+    class: Drupal\mrmilu_twig\Twig\MrMiluBlockExtension
+    tags:
+      - { name: twig.extension }
+  mrmilu_twig.twig.mrmilu_image_style:
+    class: Drupal\mrmilu_twig\Twig\MrMiluImageStyle
+    arguments: ['@image.factory']
+    tags:
+      - { name: twig.extension }
+  mrmilu_twig.twig.mrmilu_path_lang:
+    class: Drupal\mrmilu_twig\Twig\MrMiluPathLang
+    tags:
+      - { name: twig.extension }
+  mrmilu_twig.twig.mrmilu_render_plugin:
+    class: Drupal\mrmilu_twig\Twig\MrMiluRenderPlugin
+    arguments: ['@plugin.manager.block']
+    tags:
+      - { name: twig.extension }
