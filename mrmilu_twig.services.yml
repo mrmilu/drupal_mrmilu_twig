@@ -17,3 +17,8 @@ services:
     arguments: ['@plugin.manager.block']
     tags:
       - { name: twig.extension }
+  mrmilu_twig.twig.mrmilu_render_entity:
+    class: Drupal\mrmilu_twig\Twig\MrMiluRenderEntity
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: twig.extension }
