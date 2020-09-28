@@ -47,8 +47,7 @@ class MrMiluRenderPlugin extends \Twig_Extension {
   /**
    * The php function to load a given block
    */
-  public function mrmilu_render_plugin($plugin_id) {
-    $config = [];// You can hard code configuration or you load from settings.
+  public function mrmilu_render_plugin($plugin_id, $config = []) {
     $plugin_block = $this->blockManager->createInstance($plugin_id, $config);
     $render = $plugin_block->build();
     return $render;
