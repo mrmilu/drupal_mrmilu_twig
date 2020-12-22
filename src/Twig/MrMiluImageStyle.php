@@ -47,7 +47,10 @@ class MrMiluImageStyle extends \Twig_Extension {
    */
   public function mrmilu_image_style($uri, $image_style) {
     $image = $this->imageFactory->get($uri);
-    if ($image->isValid()) return ImageStyle::load($image_style)->buildUrl($uri);
+    if ($image->isValid()) {
+      $url = ImageStyle::load($image_style)->buildUrl($uri);
+      return file_url_transform_relative($url);
+    }
     else return file_create_url($uri);
   }
 }
