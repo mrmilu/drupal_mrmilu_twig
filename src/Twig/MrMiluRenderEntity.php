@@ -49,13 +49,16 @@ class MrMiluRenderEntity extends \Twig_Extension {
     $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $entity = \Drupal::entityTypeManager()->getStorage($entityType)->load($entityId);
 
-    $build = $this->entityTypeManager
-      ->getViewBuilder($entityType)
-      ->view($entity, $displayMode, $langcode);
+    if ($entity) {
+      $build = $this->entityTypeManager
+        ->getViewBuilder($entityType)
+        ->view($entity, $displayMode, $langcode);
 
-    CacheableMetadata::createFromRenderArray($build)
-      ->merge(CacheableMetadata::createFromObject($entity))
-      ->applyTo($build);
-    return $build;
+      CacheableMetadata::createFromRenderArray($build)
+        ->merge(CacheableMetadata::createFromObject($entity))
+        ->applyTo($build);
+      return $build;
+    }
+    return NULL;
   }
 }
