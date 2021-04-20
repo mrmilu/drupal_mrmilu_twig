@@ -50,10 +50,8 @@ class MrMiluTerm extends \Twig_Extension {
     $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $term = Term::load($id);
     if ($term) {
-      if ($term->hasTranslation($langcode)) {
-        return $term->getTranslation($langcode)->getName();
-      }
-      return $term->getName();
+      $termTranslated = $term->hasTranslation($langcode) ? $term->getTranslation($langcode) : $term;
+      return !$termTranslated->field_subtitle->isEmpty() ? $termTranslated->field_subtitle->value : $termTranslated->getName();
     }
 
     return;
