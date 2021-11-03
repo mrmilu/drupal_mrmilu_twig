@@ -7,6 +7,7 @@
 
 namespace Drupal\mrmilu_twig\Twig;
 use Drupal\block_content\Entity\BlockContent;
+use Twig\TwigFunction;
 
 /**
  * Class DefaultService.
@@ -28,7 +29,7 @@ class MrMiluBlockExtension extends \Twig_Extension {
    */
   public function getFunctions() {
     return array(
-      new \Twig_SimpleFunction('mrmilu_block_display', array($this, 'mrmilu_block_display'), array(
+      new TwigFunction('mrmilu_block_display', array($this, 'mrmilu_block_display'), array(
         'is_safe' => array('html'),
       )),
     );

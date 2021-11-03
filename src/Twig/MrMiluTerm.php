@@ -5,6 +5,8 @@ namespace Drupal\mrmilu_twig\Twig;
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\taxonomy\Entity\Term;
+use Twig\TwigFunction;
+
 /**
  * Class DefaultService.
  *
@@ -39,7 +41,7 @@ class MrMiluTerm extends \Twig_Extension {
    */
   public function getFunctions() {
     return array(
-      new \Twig_SimpleFunction('mrmilu_term', [$this, 'mrmilu_term']),
+      new TwigFunction('mrmilu_term', [$this, 'mrmilu_term']),
     );
   }
 

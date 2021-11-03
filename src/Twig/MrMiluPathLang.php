@@ -2,6 +2,7 @@
 
 namespace Drupal\mrmilu_twig\Twig;
 use Drupal\Core\Url;
+use Twig\TwigFunction;
 
 /**
  * Class DefaultService.
@@ -23,7 +24,7 @@ class MrMiluPathLang extends \Twig_Extension {
    */
   public function getFunctions() {
     return array(
-      new \Twig_SimpleFunction('mrmilu_path_lang', [$this, 'mrmilu_path_lang']),
+      new TwigFunction('mrmilu_path_lang', [$this, 'mrmilu_path_lang']),
     );
   }
 

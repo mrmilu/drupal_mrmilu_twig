@@ -8,6 +8,7 @@
 namespace Drupal\mrmilu_twig\Twig;
 use Drupal\Core\Image\ImageFactory;
 use Drupal\image\Entity\ImageStyle;
+use Twig\TwigFunction;
 
 /**
  * Class DefaultService.
@@ -38,7 +39,7 @@ class MrMiluImageStyle extends \Twig_Extension {
    */
   public function getFunctions() {
     return array(
-      new \Twig_SimpleFunction('mrmilu_image_style', [$this, 'mrmilu_image_style']),
+      new TwigFunction('mrmilu_image_style', [$this, 'mrmilu_image_style']),
     );
   }
 

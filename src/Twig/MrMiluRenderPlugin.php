@@ -8,6 +8,7 @@
 namespace Drupal\mrmilu_twig\Twig;
 
 use Drupal\Core\Block\BlockManager;
+use Twig\TwigFunction;
 
 /**
  * Class DefaultService.
@@ -38,7 +39,7 @@ class MrMiluRenderPlugin extends \Twig_Extension {
    */
   public function getFunctions() {
     return array(
-      new \Twig_SimpleFunction('mrmilu_render_plugin', array($this, 'mrmilu_render_plugin'), array(
+      new TwigFunction('mrmilu_render_plugin', array($this, 'mrmilu_render_plugin'), array(
         'is_safe' => array('html'),
       )),
     );

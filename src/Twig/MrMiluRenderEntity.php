@@ -3,6 +3,7 @@
 namespace Drupal\mrmilu_twig\Twig;
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Twig\TwigFunction;
 
 /**
  * Class DefaultService.
@@ -38,7 +39,7 @@ class MrMiluRenderEntity extends \Twig_Extension {
    */
   public function getFunctions() {
     return array(
-      new \Twig_SimpleFunction('mrmilu_render_entity', [$this, 'mrmilu_render_entity']),
+      new TwigFunction('mrmilu_render_entity', [$this, 'mrmilu_render_entity']),
     );
   }
 
