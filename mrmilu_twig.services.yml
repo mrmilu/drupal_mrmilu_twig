@@ -37,3 +37,8 @@ services:
       arguments: ['@image.factory']
       tags:
         - { name: twig.extension }
+  mrmilu_twig.twig.mrmilu_picture_webp:
+      class: Drupal\mrmilu_twig\Twig\MrMiluPictureWebp
+      arguments: ['@renderer']
+      tags:
+        - { name: twig.extension }
