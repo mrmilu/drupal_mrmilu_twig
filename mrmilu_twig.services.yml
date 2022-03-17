@@ -8,6 +8,10 @@ services:
     arguments: ['@image.factory']
     tags:
       - { name: twig.extension }
+  mrmilu_twig.twig.mrmilu_image_background:
+    class: Drupal\mrmilu_twig\Twig\MrMiluImageBackground
+    tags:
+      - { name: twig.extension }
   mrmilu_twig.twig.mrmilu_path_lang:
     class: Drupal\mrmilu_twig\Twig\MrMiluPathLang
     tags:
