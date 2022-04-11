@@ -40,11 +40,8 @@
      */
     public function imageBackground($image_object, $size = "cover", $position = "center center", $repeat = "inherit") {
       if (isset($image_object['#field_name'])) {
-        $viewBuilder = $image_object['#object'];
-        $file_name = $image_object["#field_name"];
-        $image_id = $viewBuilder->get($file_name)->target_id;
         $default_style = self::getDefaultStyle($image_object);
-        $file = File::load($image_id);
+        $file = self::getFile($image_object);
         if (!empty($file)) {
           $image_uri = $file->getFileUri();
           if ($default_style) {
@@ -117,5 +114,21 @@
           break;
       }
       return $default_style;
+    }
+    protected static function getFile($image_object) {
+      $file = NULL;
+      switch ($image_object[0]['#theme']) {
+        case 'image_formatter':
+          $viewBuilder = $image_object['#object'];
+          $file_name = $image_object["#field_name"];
+          $fid = $viewBuilder->get($file_name)->target_id;
+          break;
+        case 'media':
+          $media = $image_object[0]["#media"];
+          $fid = $media->field_media_image->target_id;
+          break;
+      }
+      if (isset($fid)) $file = File::load($fid);
+      return $file;
     }
   }
