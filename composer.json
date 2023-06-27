@@ -1,5 +1,8 @@
 {
- "name": "mrmilu/mrmilu_twig",
- "description": "Custom Twig Extensions",
- "type": "drupal-mrmilu-module"
+    "name": "mrmilu/mrmilu_twig",
+    "description": "Custom Twig Extensions",
+    "type": "drupal-mrmilu-module",
+    "require": {
+      "drupal/webp": "^1.0@beta"
+    }
 }
