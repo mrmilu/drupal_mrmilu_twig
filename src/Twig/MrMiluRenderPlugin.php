@@ -8,6 +8,7 @@
 namespace Drupal\mrmilu_twig\Twig;
 
 use Drupal\Core\Block\BlockManager;
+use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
@@ -15,7 +16,7 @@ use Twig\TwigFunction;
  *
  * @package Drupal\mrmilu_twig
  */
-class MrMiluRenderPlugin extends \Twig_Extension {
+class MrMiluRenderPlugin extends AbstractExtension {
 
   /**
    * @var \Drupal\Core\Block\BlockManager

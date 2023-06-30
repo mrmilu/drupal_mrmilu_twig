@@ -3,6 +3,7 @@
 namespace Drupal\mrmilu_twig\Twig;
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
@@ -10,7 +11,7 @@ use Twig\TwigFunction;
  *
  * @package Drupal\mrmilu_twig
  */
-class MrMiluRenderEntity extends \Twig_Extension {
+class MrMiluRenderEntity extends AbstractExtension {
 
   /**
    * The entity type manager.

@@ -5,7 +5,7 @@ services:
       - { name: twig.extension }
   mrmilu_twig.twig.mrmilu_image_style:
     class: Drupal\mrmilu_twig\Twig\MrMiluImageStyle
-    arguments: ['@image.factory']
+    arguments: ['@image.factory', '@file_url_generator']
     tags:
       - { name: twig.extension }
   mrmilu_twig.twig.mrmilu_image_background:

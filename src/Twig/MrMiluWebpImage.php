@@ -8,6 +8,7 @@
 namespace Drupal\mrmilu_twig\Twig;
 use Drupal\Core\Image\ImageFactory;
 use Drupal\image\Entity\ImageStyle;
+use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
@@ -15,7 +16,7 @@ use Twig\TwigFunction;
  *
  * @package Drupal\mrmilu_twig
  */
-class MrMiluWebpImage extends \Twig_Extension {
+class MrMiluWebpImage extends AbstractExtension {
 
   /**
    * @var \Drupal\Core\Image\ImageFactory
@@ -39,7 +40,7 @@ class MrMiluWebpImage extends \Twig_Extension {
    */
   public function getFunctions() {
     return array(
-      new \Twig_SimpleFunction('webp_image', [$this, 'webp_image']),
+      new TwigFunction('webp_image', [$this, 'webp_image']),
     );
   }
 

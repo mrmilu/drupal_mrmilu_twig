@@ -6,8 +6,10 @@
  */
 
 namespace Drupal\mrmilu_twig\Twig;
+use Drupal\Core\File\FileUrlGeneratorInterface;
 use Drupal\Core\Image\ImageFactory;
 use Drupal\image\Entity\ImageStyle;
+use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
@@ -15,43 +17,42 @@ use Twig\TwigFunction;
  *
  * @package Drupal\mrmilu_twig
  */
-class MrMiluImageStyle extends \Twig_Extension {
+class MrMiluImageStyle extends AbstractExtension {
 
-  /**
-   * @var \Drupal\Core\Image\ImageFactory
-   */
-  protected $imageFactory;
+  protected ImageFactory $imageFactory;
+  protected FileUrlGeneratorInterface $fileUrlGenerator;
 
-  public function __construct(ImageFactory $imageFactory) {
+  public function __construct(ImageFactory $imageFactory, FileUrlGeneratorInterface $fileUrlGenerator) {
     $this->imageFactory = $imageFactory;
+    $this->fileUrlGenerator = $fileUrlGenerator;
   }
 
   /**
    * {@inheritdoc}
    * This function must return the name of the extension. It must be unique.
    */
-  public function getName() {
+  public function getName(): string {
     return 'mrmilu_image_style';
   }
 
   /**
    * In this function we can declare the extension function
    */
-  public function getFunctions() {
-    return array(
+  public function getFunctions(): array {
+    return [
       new TwigFunction('mrmilu_image_style', [$this, 'mrmilu_image_style']),
-    );
+    ];
   }
 
   /**
    * The php function to load a given block
    */
-  public function mrmilu_image_style($uri, $image_style) {
+  public function mrmilu_image_style($uri, $image_style): string {
     $image = $this->imageFactory->get($uri);
-    if ($image->isValid()) {
-      $url = ImageStyle::load($image_style)->buildUrl($uri);
-      return file_url_transform_relative($url);
+    if (!$image->isValid()) {
+      return $this->fileUrlGenerator->generateAbsoluteString($uri);
     }
-    else return file_create_url($uri);
+    $url = ImageStyle::load($image_style)->buildUrl($uri);
+    return $this->fileUrlGenerator->generateString($url);
   }
 }

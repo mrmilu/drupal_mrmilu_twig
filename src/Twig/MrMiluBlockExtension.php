@@ -7,6 +7,7 @@
 
 namespace Drupal\mrmilu_twig\Twig;
 use Drupal\block_content\Entity\BlockContent;
+use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
@@ -14,7 +15,7 @@ use Twig\TwigFunction;
  *
  * @package Drupal\mrmilu_twig
  */
-class MrMiluBlockExtension extends \Twig_Extension {
+class MrMiluBlockExtension extends AbstractExtension {
 
   /**
    * {@inheritdoc}

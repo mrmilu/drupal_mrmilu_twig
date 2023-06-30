@@ -4,6 +4,7 @@ namespace Drupal\mrmilu_twig\Twig;
 
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
@@ -11,7 +12,7 @@ use Twig\TwigFunction;
  *
  * @package Drupal\mrmilu_twig
  */
-class MrMiluSearchResult extends \Twig_Extension {
+class MrMiluSearchResult extends AbstractExtension {
 
   /**
    * The entity type manager.

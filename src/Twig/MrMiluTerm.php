@@ -2,9 +2,9 @@
 
 namespace Drupal\mrmilu_twig\Twig;
 
-use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\taxonomy\Entity\Term;
+use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
@@ -12,7 +12,7 @@ use Twig\TwigFunction;
  *
  * @package Drupal\mrmilu_twig
  */
-class MrMiluTerm extends \Twig_Extension {
+class MrMiluTerm extends AbstractExtension {
 
   /**
    * The entity type manager.

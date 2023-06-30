@@ -5,6 +5,7 @@
   use Drupal\Component\Render\FormattableMarkup;
   use Drupal\file\Entity\File;
   use Drupal\image\Entity\ImageStyle;
+  use Twig\Extension\AbstractExtension;
   use Twig\TwigFilter;
 
   /**
@@ -12,7 +13,7 @@
    *
    * @package Drupal\mrmilu_twig
    */
-  class MrMiluImageBackground extends \Twig_Extension {
+  class MrMiluImageBackground extends AbstractExtension {
 
     public function getFilters() {
       $filters = [

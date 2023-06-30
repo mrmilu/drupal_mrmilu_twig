@@ -2,6 +2,7 @@
 
 namespace Drupal\mrmilu_twig\Twig;
 use Drupal\Core\Url;
+use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
@@ -9,7 +10,7 @@ use Twig\TwigFunction;
  *
  * @package Drupal\mrmilu_twig
  */
-class MrMiluPathLang extends \Twig_Extension {
+class MrMiluPathLang extends AbstractExtension {
 
   /**
    * {@inheritdoc}
