@@ -54,6 +54,7 @@ class MrMiluBlockExtension extends AbstractExtension {
         '#configuration' => [
           'provider' => '',
           'plugin_id' => $entity->bundle(),
+          'view_mode' => 'default',
         ],
         '#plugin_id' => $entity->bundle(),
         '#base_plugin_id' => $entity->bundle(),

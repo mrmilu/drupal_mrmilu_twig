@@ -2,8 +2,8 @@ name: Mr. Milu Twig
 type: module
 description: Custom Twig Extensions
 package: Mr. Milú
-core_version_requirement: ^8.8.0 || ^9 || ^10
-version: 4.0.0
+core_version_requirement: ^9 || ^10
+version: 4.0.1
 
 dependencies:
   - drupal:responsive_image
